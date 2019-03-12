@@ -1,0 +1,62 @@
+C51 COMPILER V9.57.0.0   MAIN                                                              07/27/2018 12:21:03 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(Include) DEFINE(FOSC_160000) DEBUG O
+                    -BJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          /*
+   2           * Nuvoton_N76E003_LCDTest
+   3           *
+   4           * Created: 16/7/2018 3:40:10 PM
+   5           * Author : Asim Merchant
+   6           */ 
+   7           
+   8          #include "N76E003.h"
+   9          #include "Common.h"
+  10          #include "Delay.h"
+  11          #include "SFR_Macro.h"
+  12          #include "Function_define.h"
+  13          #include "ErLCD_8051.h"
+  14          
+  15          //char code testString[20] = "Hello World";
+  16          void main (void)
+  17          {
+  18   1        P10_PushPull_Mode;
+  19   1        InitializeLcd();
+  20   1        Send_A_Command(0x01);
+  21   1        Timer0_Delay1ms(2);
+  22   1        Send_A_Character('A');
+  23   1        Send_An_Integer(3,1,10);
+  24   1        Send_An_32Integer(1,2,3456);
+  25   1        Send_An_lInteger(1,3,78910);
+  26   1        Send_A_StringToLcdwithLocation(5,4,"Hello World");
+  27   1        #if MODE_FLOAT
+  28   1        Send_A_2Float(6,1,25.387);
+  29   1        Send_A_1Float(6,2,25.387);
+  30   1        Send_A_0Float(10,3,25.387);
+  31   1        #endif
+  32   1        while(1)
+  33   1        {
+  34   2          P10 = ~P10;
+  35   2          Timer0_Delay1ms(100);
+  36   2        }
+  37   1      }
+  38            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    990    ----
+   CONSTANT SIZE    =     39    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4     139
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

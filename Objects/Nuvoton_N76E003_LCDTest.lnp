@@ -1,0 +1,9 @@
+".\Objects\main.obj",
+".\Objects\Common.obj",
+".\Objects\Delay.obj",
+".\Objects\STARTUP.obj" 
+TO ".\Objects\Nuvoton_N76E003_LCDTest" 
+PRINT(".\Listings\Nuvoton_N76E003_LCDTest.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 
+CODE( 0X0000-0X47FF )
+XDATA( 0X0000-0X02FF )
